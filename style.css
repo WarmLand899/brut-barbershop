@@ -228,9 +228,10 @@ body {
         height: auto;
         padding: 25px 20px;
 
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
         align-items: flex-start;
-        gap: 10px;
+        justify-content: space-between;
 
         font-size: 16px;
     }
