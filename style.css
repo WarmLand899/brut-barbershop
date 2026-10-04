@@ -1,0 +1,369 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #111;
+    color: #fff;
+    font-family: 'Cormorant Garamond', sans-serif;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 120px;
+
+    z-index: 10;
+
+    background-color: #000;
+
+}
+
+.logo {
+    color: #fff;
+    text-decoration: none;
+    
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 141px;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+
+    font-size: 20px;
+}
+
+.hero {
+    position: relative;
+
+    min-height: 900px;
+
+    display: flex;
+    align-items: center;
+
+    background-image: url("images/home.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 650px;
+    margin-top: 60px;
+    margin-left: 120px;
+}
+
+.hero h1 {
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.hero p {
+    max-width: 450px;
+
+    margin: 40px 0;
+
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 30px;
+    width: 266px;
+    height: 95px;
+
+    background: #D8C679;
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 54px;
+
+    
+}
+
+.learn-more {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.learn-more img {
+    width: 31px;
+    height: 31px;
+}
+
+.footer {
+    height: 100px;
+    background: #000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 120px;
+
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+
+    /* Шапка */
+    .header {
+        height: 70px;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 36px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+
+    /* Главный экран */
+    .hero {
+        min-height: 700px;
+        background-position: center;
+    }
+
+    .hero-content {
+        max-width: none;
+        margin: 80px 20px 0;
+    }
+
+    .hero h1 {
+        font-size: 44px;
+        line-height: 1.05;
+        margin-bottom: 25px;
+    }
+
+    .hero p {
+        max-width: 100%;
+        margin: 30px 0 0;
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+
+    /* Кнопки */
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .hero-button {
+        width: 220px;
+        height: 70px;
+        border-radius: 25px;
+        font-size: 26px;
+    }
+
+    .learn-more {
+        font-size: 17px;
+        gap: 10px;
+    }
+
+    .learn-more img {
+        width: 25px;
+        height: 25px;
+    }
+
+
+    /* Нижняя полоска */
+    .footer {
+        height: auto;
+        padding: 25px 20px;
+
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+
+
+
+.advantages {
+    position: relative;
+
+    width: 100%;
+    min-height: 800px;
+
+    background-image: url("images/advantages.jpg");
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    overflow: hidden;
+}
+
+
+/* Затемнение изображения */
+
+.advantages-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.35);
+}
+
+
+/* Контент */
+
+.advantages-content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    padding: 90px 70px 0;
+}
+
+
+/* Заголовок */
+
+.advantages h2 {
+    margin: 0;
+
+    text-align: center;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+
+/* Четыре преимущества */
+
+.advantages-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 35px;
+
+    margin-top: 145px;
+}
+
+
+/* Отдельное преимущество */
+
+.advantage {
+    text-align: center;
+}
+
+
+/* Круг с иконкой */
+
+.advantage-icon {
+    width: 96px;
+    height: 96px;
+
+    margin: 0 auto 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+
+    border-radius: 50%;
+}
+
+
+/* Иконка */
+
+.advantage-icon img {
+    width: 52px;
+    height: 52px;
+
+    object-fit: contain;
+}
+
+
+/* Заголовок преимущества */
+
+.advantage h3 {
+    margin: 0 0 16px;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    line-height: 1.1;
+    font-weight: 600;
+}
+
+
+/* Описание */
+
+.advantage p {
+    max-width: 270px;
+
+    margin: 0 auto;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    line-height: 1.25;
+    font-weight: 400;
+
+    color: #d0d0d0;
+}
