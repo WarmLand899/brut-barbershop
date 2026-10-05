@@ -1,32 +1,198 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>БРУТ — Барбершоп</title>
 
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- CSS -->
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
+    <!-- =========================
+         МОДАЛЬНОЕ ОКНО ЗАПИСИ
+         ========================= -->
+
+    <div class="booking-modal" id="bookingModal">
+
+        <div class="booking-form">
+
+            <button
+                class="booking-close"
+                id="bookingClose"
+                type="button"
+            >
+                &times;
+            </button>
+
+
+            <h2>Записаться</h2>
+
+
+            <form id="bookingForm">
+
+                <label>
+
+                    Ваше имя
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Введите имя"
+                        required
+                    >
+
+                </label>
+
+
+                <label>
+
+                    Телефон
+
+                    <input
+                        type="tel"
+                        name="phone"
+                        placeholder="+7 (___) ___-__-__"
+                        required
+                    >
+
+                </label>
+
+
+                <label>
+
+                    Услуга
+
+                    <select name="service" required>
+
+                        <option value="">
+                            Выберите услугу
+                        </option>
+
+                        <option value="Мужская стрижка">
+                            Мужская стрижка — 2 000 ₽
+                        </option>
+
+                        <option value="Стрижка + борода">
+                            Стрижка + борода — 2 800 ₽
+                        </option>
+
+                        <option value="Оформление бороды">
+                            Оформление бороды — 1 200 ₽
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <label>
+
+                    Дата
+
+                    <input
+                        type="date"
+                        name="date"
+                        required
+                    >
+
+                </label>
+
+
+                <label>
+
+                    Время
+
+                    <input
+                        type="time"
+                        name="time"
+                        required
+                    >
+
+                </label>
+
+
+                <button
+                    type="submit"
+                    class="booking-submit"
+                >
+                    Отправить заявку
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         HEADER
+         ========================= -->
+
     <header class="header">
 
-        <a href="#" class="logo">БРУТ</a>
+        <a href="#" class="logo">
+            БРУТ
+        </a>
+
 
         <nav class="nav">
-            <a href="#services">Услуги</a>
-            <a href="#works">Работы</a>
-            <a href="#barbers">Барберы</a>
-            <a href="#contacts">Контакты</a>
+
+            <a href="#services">
+                Услуги
+            </a>
+
+            <a href="#works">
+                Работы
+            </a>
+
+            <a href="#barbers">
+                Барберы
+            </a>
+
+            <a href="#contacts">
+                Контакты
+            </a>
+
         </nav>
+
     </header>
 
 
+    <!-- =========================
+         MAIN
+         ========================= -->
+
     <main>
+
+
+        <!-- =========================
+             HERO
+             ========================= -->
 
         <section class="hero">
 
@@ -37,112 +203,498 @@
                     без лишнего
                 </h1>
 
+
                 <p>
-                    Стильные стрижки, аккуратная борода, 
+                    Стильные стрижки, аккуратная борода,
                     профессиональные барберы
                 </p>
 
+
                 <div class="hero-actions">
-                    <a href="#booking" class="hero-button">
+
+                    <a
+                        href="#booking"
+                        class="hero-button"
+                    >
                         Записаться
                     </a>
 
-                    <a href="#" class="learn-more">
+
+                    <a
+                        href="#services"
+                        class="learn-more"
+                    >
                         Узнать больше
-                        <img src="images/akar-icons_arrow-right.svg" alt="">
+
+                        <img
+                            src="images/akar-icons_arrow-right.svg"
+                            alt=""
+                        >
+
                     </a>
-</div>
+
+                </div>
 
             </div>
 
         </section>
 
+
+        <!-- =========================
+             ПРЕИМУЩЕСТВА
+             ========================= -->
+
+        <section class="advantages">
+
+            <div class="advantages-overlay"></div>
+
+
+            <div class="advantages-content">
+
+                <h2>
+                    Почему выбирают нас?
+                </h2>
+
+
+                <div class="advantages-list">
+
+
+                    <!-- Преимущество 1 -->
+
+                    <div class="advantage">
+
+                        <div class="advantage-icon">
+
+                            <img
+                                src="images/scissors.svg"
+                                alt=""
+                            >
+
+                        </div>
+
+
+                        <h3>
+                            Опытные барберы
+                        </h3>
+
+
+                        <p>
+                            Наши мастера знают, как подчеркнуть
+                            ваш стиль и подобрать идеальную форму.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Преимущество 2 -->
+
+                    <div class="advantage">
+
+                        <div class="advantage-icon">
+
+                            <img
+                                src="images/calendar.svg"
+                                alt=""
+                            >
+
+                        </div>
+
+
+                        <h3>
+                            Работаем по записи
+                        </h3>
+
+
+                        <p>
+                            Записывайтесь заранее — мы ценим
+                            ваше время и всегда соблюдаем расписание.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Преимущество 3 -->
+
+                    <div class="advantage">
+
+                        <div class="advantage-icon">
+
+                            <img
+                                src="images/cosmetics.svg"
+                                alt=""
+                            >
+
+                        </div>
+
+
+                        <h3>
+                            Премиальная косметика
+                        </h3>
+
+
+                        <p>
+                            Используем качественные профессиональные
+                            средства для волос, бороды и кожи.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Преимущество 4 -->
+
+                    <div class="advantage">
+
+                        <div class="advantage-icon">
+
+                            <img
+                                src="images/location.svg"
+                                alt=""
+                            >
+
+                        </div>
+
+
+                        <h3>
+                            Удобное расположение
+                        </h3>
+
+
+                        <p>
+                            Находимся в центре города — легко
+                            добраться, рядом есть удобная парковка.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ПРАЙС
+             ========================= -->
+
+        <section
+            class="price"
+            id="services"
+        >
+
+            <div class="price-overlay"></div>
+
+
+            <div class="price-content">
+
+                <h2>
+                    ПРАЙС
+                </h2>
+
+
+                <div class="price-list">
+
+
+                    <!-- Карточка 1 -->
+
+                    <div class="price-card">
+
+                        <img
+                            src="images/men_1.png"
+                            alt="Стрижка и оформление бороды"
+                            class="price-image"
+                        >
+
+
+                        <div class="price-info">
+
+                            <h3>
+                                Стрижка + борода
+                            </h3>
+
+
+                            <p>
+                                Стрижка и оформление бороды
+                                в одном сеансе
+                            </p>
+
+
+                            <span class="price-value">
+                                2 800 ₽
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Карточка 2 -->
+
+                    <div class="price-card">
+
+                        <img
+                            src="images/men_2.png"
+                            alt="Мужская стрижка"
+                            class="price-image"
+                        >
+
+
+                        <div class="price-info">
+
+                            <h3>
+                                Мужская стрижка
+                            </h3>
+
+
+                            <p>
+                                Классика, фейд, кроп и другие
+                                современные стрижки
+                            </p>
+
+
+                            <span class="price-value">
+                                2 000 ₽
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Карточка 3 -->
+
+                    <div class="price-card">
+
+                        <img
+                            src="images/men_3.png"
+                            alt="Оформление бороды"
+                            class="price-image"
+                        >
+
+
+                        <div class="price-info">
+
+                            <h3>
+                                Оформление бороды
+                            </h3>
+
+
+                            <p>
+                                Коррекция формы, уход,
+                                консультация
+                            </p>
+
+
+                            <span class="price-value">
+                                1 200 ₽
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <p class="price-note">
+
+                    Прозрачные цены. Никаких скрытых доплат.
+                    Вы всегда знаете, за что платите.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             НАШИ РАБОТЫ
+             ========================= -->
+
+        <section
+            class="works"
+            id="works"
+        >
+
+            <div class="works-overlay"></div>
+
+
+            <div class="works-content">
+
+                <h2>
+                    НАШИ РАБОТЫ
+                </h2>
+
+
+                <div class="works-grid">
+
+
+                    <!-- Работа 1 -->
+
+                    <div class="work-item">
+
+                        <img
+                            src="images/men1.png"
+                            alt="Работа барбера"
+                        >
+
+                    </div>
+
+
+                    <!-- Работа 2 -->
+
+                    <div class="work-item">
+
+                        <img
+                            src="images/men2.png"
+                            alt="Работа барбера"
+                        >
+
+                    </div>
+
+
+                    <!-- Работа 3 -->
+
+                    <div class="work-item">
+
+                        <img
+                            src="images/men3.png"
+                            alt="Работа барбера"
+                        >
+
+                    </div>
+
+
+                    <!-- Работа 4 -->
+
+                    <div class="work-item">
+
+                        <img
+                            src="images/men4.png"
+                            alt="Работа барбера"
+                        >
+
+                    </div>
+
+
+                    <!-- Работа 5 -->
+
+                    <div class="work-item">
+
+                        <img
+                            src="images/men5.png"
+                            alt="Работа барбера"
+                        >
+
+                    </div>
+
+
+                    <!-- Работа 6 -->
+
+                    <div class="work-item">
+
+                        <img
+                            src="images/men6.png"
+                            alt="Работа барбера"
+                        >
+
+                    </div>
+
+
+                    <!-- Дополнительная работа 7 -->
+
+                    <div class="work-item extra-work">
+
+                        <img
+                            src="images/men7.png"
+                            alt="Работа барбера"
+                        >
+
+                    </div>
+
+
+                    <!-- Дополнительная работа 8 -->
+
+                    <div class="work-item extra-work">
+
+                        <img
+                            src="images/men8.png"
+                            alt="Работа барбера"
+                        >
+
+                    </div>
+
+
+                    <!-- Дополнительная работа 9 -->
+
+                    <div class="work-item extra-work">
+
+                        <img
+                            src="images/men9.png"
+                            alt="Работа барбера"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- Кнопка "Больше работ" -->
+
+                <button
+                    class="works-button"
+                    id="worksButton"
+                    type="button"
+                >
+
+                    <span>
+                        Больше работ
+                    </span>
+
+                    <span class="works-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+
     </main>
+
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+
     <footer class="footer">
-    <div class="footer-address">
-        Москва, ул. Лесная 7
-    </div>
 
-    <div class="footer-hours">
-        Работает ежедневно<br> 
-        с 10:00 до 22:00
-    </div>
-</footer>
-
-</body>
-</html>
-
-
-
-
-
-<section class="advantages">
-
-    <div class="advantages-overlay"></div>
-
-    <div class="advantages-content">
-
-        <h2>Почему выбирают нас?</h2>
-
-        <div class="advantages-list">
-
-            <div class="advantage">
-                <div class="advantage-icon">
-                    <img src="images/scissors.svg" alt="">
-                </div>
-
-                <h3>Опытные барберы</h3>
-
-                <p>
-                    Наши мастера знают, как подчеркнуть
-                    ваш стиль и подобрать идеальную форму.
-                </p>
-            </div>
-
-
-            <div class="advantage">
-                <div class="advantage-icon">
-                    <img src="images/calendar.svg" alt="">
-                </div>
-
-                <h3>Работаем по записи</h3>
-
-                <p>
-                    Записывайтесь заранее — мы ценим
-                    ваше время и всегда соблюдаем расписание.
-                </p>
-            </div>
-
-
-            <div class="advantage">
-                <div class="advantage-icon">
-                    <img src="images/cosmetics.svg" alt="">
-                </div>
-
-                <h3>Премиальная косметика</h3>
-
-                <p>
-                    Используем качественные профессиональные
-                    средства для волос, бороды и кожи.
-                </p>
-            </div>
-
-
-            <div class="advantage">
-                <div class="advantage-icon">
-                    <img src="images/location.svg" alt="">
-                </div>
-
-                <h3>Удобное расположение</h3>
-
-                <p>
-                    Находимся в центре города — легко
-                    добраться, рядом есть удобная парковка.
-                </p>
-            </div>
-
+        <div class="footer-address">
+            Москва, ул. Лесная 7
         </div>
 
-    </div>
 
-</section>
+        <div class="footer-hours">
+            Работает ежедневно<br>
+            с 10:00 до 22:00
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+         ========================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
