@@ -101,3 +101,123 @@ if (worksButton) {
     });
 
 }
+
+// =========================
+// ФОРМАТ ВРЕМЕНИ 00:00
+// =========================
+
+function setupTimeInput(input) {
+
+    if (!input) return;
+
+    input.addEventListener('input', function () {
+
+        // Оставляем только цифры
+        let value = this.value.replace(/\D/g, '');
+
+        // Максимум 4 цифры
+        value = value.slice(0, 4);
+
+        // Проверяем часы
+        if (value.length >= 1) {
+
+            const firstDigit = Number(value[0]);
+
+            if (firstDigit > 2) {
+                value = '2' + value.slice(1);
+            }
+
+        }
+
+        if (value.length >= 2) {
+
+            let hours = Number(value.slice(0, 2));
+
+            if (hours > 23) {
+                hours = 23;
+                value = String(hours) + value.slice(2);
+            }
+
+        }
+
+        // Проверяем минуты
+        if (value.length >= 3) {
+
+            const minuteFirstDigit = Number(value[2]);
+
+            if (minuteFirstDigit > 5) {
+                value = value.slice(0, 2) + '5' + value.slice(3);
+            }
+
+        }
+
+        // Добавляем двоеточие после двух цифр
+        if (value.length > 2) {
+
+            value =
+                value.slice(0, 2) +
+                ':' +
+                value.slice(2);
+
+        }
+
+        this.value = value;
+
+    });
+
+
+    // Дополнительная проверка при отправке
+    input.addEventListener('blur', function () {
+
+        if (!this.value) {
+            this.setCustomValidity('');
+            return;
+        }
+
+        const match = this.value.match(/^(\d{2}):(\d{2})$/);
+
+        if (!match) {
+
+            this.setCustomValidity(
+                'Введите время в формате 00:00'
+            );
+
+            return;
+        }
+
+        const hours = Number(match[1]);
+        const minutes = Number(match[2]);
+
+        if (hours > 23 || minutes > 59) {
+
+            this.setCustomValidity(
+                'Введите корректное время'
+            );
+
+        } else {
+
+            this.setCustomValidity('');
+
+        }
+
+    });
+
+
+    input.addEventListener('focus', function () {
+
+        this.setCustomValidity('');
+
+    });
+
+}
+
+
+// Подключаем маску к обоим полям
+
+setupTimeInput(
+    document.getElementById('bookingTimeInput')
+);
+
+setupTimeInput(
+    document.getElementById('quickTimeInput')
+);
