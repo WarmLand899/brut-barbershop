@@ -1,223 +1,1820 @@
-// =========================
-// ЗАПИСЬ
-// =========================
+* {
+    box-sizing: border-box;
+}
 
-const bookingModal = document.getElementById('bookingModal');
-const bookingClose = document.getElementById('bookingClose');
-const bookingForm = document.getElementById('bookingForm');
+html {
+    scroll-behavior: smooth;
+}
 
-const bookingButtons = document.querySelectorAll(
-    '.booking-button, .hero-button'
-);
+body {
+    margin: 0;
+    background: #111;
+    color: #fff;
+    font-family: 'Cormorant Garamond', sans-serif;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 120px;
+
+    z-index: 10;
+
+    background-color: #000;
+
+}
+
+.logo {
+    color: #fff;
+    text-decoration: none;
+    
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 141px;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+
+    font-size: 20px;
+}
+
+.hero {
+    position: relative;
+
+    min-height: 900px;
+
+    display: flex;
+    align-items: center;
+
+    background-image: url("images/home.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 650px;
+    margin-top: 60px;
+    margin-left: 120px;
+}
+
+.hero h1 {
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.hero p {
+    max-width: 450px;
+
+    margin: 40px 0;
+
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 30px;
+    width: 266px;
+    height: 95px;
+
+    background: #D8C679;
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 54px;
+
+    
+}
+
+.learn-more {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.learn-more img {
+    width: 31px;
+    height: 31px;
+}
 
 
-// Открытие формы
-
-bookingButtons.forEach(function(button) {
-
-    button.addEventListener('click', function(event) {
-
-        event.preventDefault();
-
-        if (bookingModal) {
-            bookingModal.classList.add('active');
-        }
-
-    });
-
-});
 
 
-// Закрытие формы
+/* СТРАНИЦА ПРЕИМУЩЕСТВА */
 
-if (bookingClose) {
+.advantages {
+    position: relative;
 
-    bookingClose.addEventListener('click', function() {
+    width: 100%;
+    min-height: 800px;
 
-        bookingModal.classList.remove('active');
+    background-image: url("images/advantages.jpg");
+    background-size: cover;
+    background-position: center;
 
-    });
+    color: #fff;
+
+    overflow: hidden;
+}
+
+
+/* Затемнение изображения */
+
+.advantages-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.35);
+}
+
+
+/* Контент */
+
+.advantages-content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    padding: 90px 70px 0;
+}
+
+
+/* Заголовок */
+
+.advantages h2 {
+    margin: 0;
+
+    text-align: center;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+
+/* Четыре преимущества */
+
+.advantages-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 35px;
+
+    margin-top: 145px;
+}
+
+
+/* Отдельное преимущество */
+
+.advantage {
+    text-align: center;
+}
+
+
+/* Круг с иконкой */
+
+.advantage-icon {
+    width: 96px;
+    height: 96px;
+
+    margin: 0 auto 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+
+    border-radius: 50%;
+}
+
+
+/* Иконка */
+
+.advantage-icon img {
+    width: 52px;
+    height: 52px;
+
+    object-fit: contain;
+}
+
+
+/* Заголовок преимущества */
+
+.advantage h3 {
+    margin: 0 0 16px;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    line-height: 1.1;
+    font-weight: 600;
+}
+
+
+/* Описание */
+
+.advantage p {
+    max-width: 270px;
+
+    margin: 0 auto;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    line-height: 1.25;
+    font-weight: 400;
+
+    color: #d0d0d0;
+}
+
+
+
+
+
+
+
+/* СТРАНИЦА ПРАЙС */
+
+
+/* =========================
+   ПРАЙС
+   ========================= */
+
+.price {
+    position: relative;
+
+    width: 100%;
+    min-height: 700px;
+
+    background-image: url("images/rabots.png");
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    overflow: hidden;
+}
+
+
+/* Затемнение фона */
+
+.price-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+}
+
+
+/* Контент */
+
+.price-content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+
+    padding: 30px 70px 40px;
+}
+
+
+/* Заголовок */
+
+.price h2 {
+    margin: 0;
+
+    text-align: center;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    line-height: 1;
+
+    font-weight: 500;
+}
+
+
+/* Список карточек */
+
+.price-list {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+    max-width: 814px;
+
+    margin: 30px auto 0;
+}
+
+
+/* Карточка */
+
+.price-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 420px;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    background: #050505;
+}
+
+
+/* Изображение */
+
+.price-image {
+    display: block;
+    width: calc(100% - 20px);
+    height: 245px;
+    margin: 10px 10px 0;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+
+/* Информация */
+
+.price-info {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: 20px 18px 16px;
+}
+
+
+/* Название услуги */
+
+.price-info h3 {
+    margin: 0 0 16px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 23px;
+    line-height: 1.1;
+
+    font-weight: 500;
+}
+
+
+/* Описание */
+
+.price-info p {
+    margin: 0;
+
+    max-width: 220px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 15px;
+    line-height: 1.25;
+
+    color: #bdbdbd;
+}
+
+
+/* Цена */
+
+.price-value {
+    margin-top: auto;
+
+    align-self: flex-end;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 24px;
+    line-height: 1;
+
+    font-weight: 500;
+}
+
+
+/* Текст под карточками */
+
+.price-note {
+    margin: 92px auto 0;
+
+    text-align: center;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 16px;
+    line-height: 1.2;
+
+    color: #999;
 
 }
 
 
-// Закрытие по клику на затемнение
 
-if (bookingModal) {
 
-    bookingModal.addEventListener('click', function(event) {
 
-        if (event.target === bookingModal) {
 
-            bookingModal.classList.remove('active');
 
-        }
+/* =========================
+   НАШИ РАБОТЫ
+   ========================= */
 
-    });
+.works {
+    position: relative;
+
+    width: 100%;
+    min-height: 800px;
+
+    background-image: url("images/rabots.png");
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    overflow: hidden;
+}
+
+
+/* Затемнение фона */
+
+.works-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+}
+
+
+/* Контент */
+
+.works-content {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    padding: 40px 64px 50px;
+}
+
+
+/* Заголовок */
+
+.works h2 {
+    margin: 0;
+
+    text-align: center;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 32px;
+    line-height: 1;
+
+    font-weight: 500;
+}
+
+
+/* Сетка */
+
+.works-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 55px 40px;
+
+    width: 100%;
+    max-width: 676px;
+
+    margin: 45px auto 0;
+}
+
+
+/* Карточка с фотографией */
+
+.work-item {
+    width: 100%;
+    aspect-ratio: 198 / 229;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    border-radius: 20px;
+
+    background: #111;
+}
+
+
+/* Фотография */
+
+.work-item img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+
+/* Небольшой эффект при наведении */
+
+.work-item:hover img {
+    transform: scale(1.04);
+}
+
+
+/* Кнопка */
+
+.works-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    width: 198px;
+    height: 56px;
+
+    margin: 57px 0 0 auto;
+
+    padding: 0 20px 0 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    border-radius: 16px;
+
+    background: rgba(0, 0, 0, 0.25);
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 16px;
+
+    transition: background 0.3s ease;
+}
+
+
+/* Наведение на кнопку */
+
+.works-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Стрелка */
+
+.works-arrow {
+    font-family: Arial, sans-serif;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    transition: transform 0.3s ease;
+}
+
+
+.works-button:hover .works-arrow {
+    transform: translateX(5px);
+}
+
+
+
+/* =========================
+   ФОРМА ЗАПИСИ
+   ========================= */
+
+.booking-modal {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    z-index: 1000;
+}
+
+
+/* Когда окно открыто */
+
+.booking-modal.active {
+    display: flex;
+}
+
+
+/* Сама форма */
+
+.booking-form {
+    position: relative;
+
+    width: min(500px, calc(100% - 40px));
+
+    padding: 40px;
+
+    background: #111;
+
+    color: #fff;
+
+    border: 1px solid #444;
+
+    border-radius: 20px;
+}
+
+
+/* Заголовок */
+
+.booking-form h2 {
+    margin: 0 0 30px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 42px;
+
+    font-weight: 500;
+}
+
+
+/* Кнопка закрытия */
+
+.booking-close {
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    border: none;
+
+    background: none;
+
+    color: #fff;
+
+    font-size: 32px;
+
+    cursor: pointer;
+}
+
+
+/* Поля */
+
+.booking-form label {
+    display: block;
+
+    margin-bottom: 18px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 16px;
+}
+
+
+/* Input и select */
+
+.booking-form input,
+.booking-form select {
+    
+    width: 100%;
+
+    height: 48px;
+
+    margin-top: 7px;
+
+    padding: 0 14px;
+
+    border: 1px solid #444;
+
+    border-radius: 8px;
+
+    background: #1b1b1b;
+
+    color: #fff;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.booking-form input[type="tel"] {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+/* Фокус */
+
+.booking-form input:focus,
+.booking-form select:focus {
+    border-color: #fff;
+}
+
+
+/* Кнопка отправки */
+
+.booking-submit {
+    width: 100%;
+
+    height: 52px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #D8C679;
+
+    color: #111;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.booking-submit:hover {
+    background: #ddd;
+}
+
+.extra-work {
+    display: none;
+}
+
+
+
+
+
+
+/* РАЗДЕЛ НАШИ БАРБЕРЫ */
+
+/* =========================
+   НАШИ БАРБЕРЫ
+   ========================= */
+
+.barbers {
+    position: relative;
+
+    width: 100%;
+    min-height: 850px;
+
+    background-image: url("images/barbersbackround.png");
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    overflow: hidden;
+}
+
+
+/* Затемнение */
+
+.barbers-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+}
+
+
+/* Контент */
+
+.barbers-content {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    padding: 35px 40px 60px;
+}
+
+
+/* Заголовок */
+
+.barbers h2 {
+    margin: 0;
+
+    text-align: center;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 34px;
+    line-height: 1;
+
+    font-weight: 500;
+}
+
+
+/* Список */
+
+.barbers-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 35px;
+
+    width: 100%;
+    max-width: 820px;
+
+    margin: 40px auto 0;
+}
+
+
+/* =========================
+   КАРТОЧКА
+   ========================= */
+
+.barber-card {
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+    height: 190px;
+
+    padding: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    border-radius: 15px;
+
+    background: rgba(0, 0, 0, 0.85);
+}
+
+
+/* =========================
+   ФОТО
+   ========================= */
+
+.barber-photo {
+    flex-shrink: 0;
+
+    width: 170px;
+    height: 170px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    border-radius: 12px;
+}
+
+
+.barber-photo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   ИНФОРМАЦИЯ
+   ========================= */
+
+.barber-info {
+    padding: 10px 25px;
+}
+
+
+.barber-info h3 {
+    margin: 0 0 8px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 23px;
+
+    line-height: 1;
+
+    font-weight: 600;
+}
+
+
+.barber-experience {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 15px;
+
+    line-height: 1.1;
+
+    color: #d0d0d0;
+}
+
+
+.barber-info p {
+    max-width: 450px;
+
+    margin: 0;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 15px;
+
+    line-height: 1.25;
+
+    color: #d0d0d0;
+}
+
+
+
+
+
+/* =========================
+   ОНЛАЙН-ЗАПИСЬ И КОНТАКТЫ
+   ========================= */
+
+.contacts {
+    width: 100%;
+
+    padding: 50px 40px 30px;
+
+    background: #050505;
+
+    color: #fff;
+}
+
+
+/* Верхняя часть */
+
+.contacts-content {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: 108px;
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================
+   ФОРМА
+   ========================= */
+
+.contact-booking {
+    width: 100%;
+    max-width: 621px;
+    
+    padding: 45px;
+
+    background: #1c1a1b;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow: 0 0 20px rgba(255,255,255,0.05);
+    border-radius: 30px;
+}
+
+
+.contact-booking h2 {
+    margin: 0 0 23px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 48px;
+
+    font-weight: 500;
+}
+
+
+.quick-booking {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 23px;
+}
+
+
+.quick-booking input,
+.quick-booking select {
+    width: 100%;
+
+    height: 67px;
+
+    padding: 0 40px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #393536;
+
+    color: #fff;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 20px;
+
+    outline: none;
+}
+
+.quick-booking input[type="tel"] {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+.quick-booking button {
+    width: 100%;
+
+    height: 74px;
+
+    margin-top: 0px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #e1d47c;
+
+    color: #171515;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 32px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.quick-booking button:hover {
+    background: #f0e18a;
+}
+
+
+/* =========================
+   КОНТАКТЫ
+   ========================= */
+
+.contact-info {
+    width: 469px;
+}
+
+
+.contact-info h3 {
+    margin: 0 0 50px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 42px;
+
+    line-height: 1.1;
+
+    font-weight: 500;
+}
+
+
+.contact-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 54px;
+
+    margin-bottom: 94px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 32px;
+
+    line-height: 1.2;
+}
+
+
+.contact-item img {
+    flex-shrink: 0;
+
+    width: 60px;
+    height: 60px;
+
+    object-fit: contain;
+}
+
+.phone-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+
+/* Социальные сети */
+
+.socials {
+    display: flex;
+
+    align-items: center;
+
+    gap: 50px;
+
+    margin-top: 12px;
+}
+
+
+.socials a {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.socials img {
+    width: 60px;
+    height: 60px;
+}
+
+
+/* =========================
+   КАРТА
+   ========================= */
+
+.map {
+    width: 100%;
+    max-width: 1200px;
+
+    height: 277px;
+
+    margin: 30px auto 0;
+
+    overflow: hidden;
+
+    border-radius: 30px;
+}
+
+
+.map img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+
+    width: 100%;
+
+    padding: 35px 160px 20px;
+
+    background: #050505;
+
+    color: #fff;
+}
+
+
+/* Верхняя строка */
+
+.footer-main {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
 
 }
 
 
-// Отправка формы
+/* Логотип */
 
-if (bookingForm) {
+.footer-logo {
 
-    bookingForm.addEventListener('submit', function(event) {
+    font-family: 'Cormorant Garamond', serif;
 
-        event.preventDefault();
+    font-size: 42px;
 
-        alert('Спасибо! Ваша заявка отправлена.');
+    font-weight: 600;
 
-        bookingForm.reset();
-
-        bookingModal.classList.remove('active');
-
-    });
-
+    letter-spacing: 2px;
 }
 
 
-// =========================
-// БОЛЬШЕ РАБОТ
-// =========================
 
-const worksButton = document.getElementById('worksButton');
+/* Навигация */
 
-const extraWorks = document.querySelectorAll('.extra-work');
+.footer-nav {
 
+    position: absolute;
 
-if (worksButton) {
+    left: 50%;
 
-    worksButton.addEventListener('click', function() {
+    transform: translateX(-50%);
 
-        extraWorks.forEach(function(work) {
+    display: flex;
 
-            work.style.display = 'block';
-
-        });
-
-        worksButton.style.display = 'none';
-
-    });
-
-}
-
-// =========================
-// ФОРМАТ ВРЕМЕНИ 00:00
-// =========================
-
-function setupTimeInput(input) {
-
-    if (!input) return;
-
-    input.addEventListener('input', function () {
-
-        // Оставляем только цифры
-        let value = this.value.replace(/\D/g, '');
-
-        // Максимум 4 цифры
-        value = value.slice(0, 4);
-
-        // Проверяем часы
-        if (value.length >= 1) {
-
-            const firstDigit = Number(value[0]);
-
-            if (firstDigit > 2) {
-                value = '2' + value.slice(1);
-            }
-
-        }
-
-        if (value.length >= 2) {
-
-            let hours = Number(value.slice(0, 2));
-
-            if (hours > 23) {
-                hours = 23;
-                value = String(hours) + value.slice(2);
-            }
-
-        }
-
-        // Проверяем минуты
-        if (value.length >= 3) {
-
-            const minuteFirstDigit = Number(value[2]);
-
-            if (minuteFirstDigit > 5) {
-                value = value.slice(0, 2) + '5' + value.slice(3);
-            }
-
-        }
-
-        // Добавляем двоеточие после двух цифр
-        if (value.length > 2) {
-
-            value =
-                value.slice(0, 2) +
-                ':' +
-                value.slice(2);
-
-        }
-
-        this.value = value;
-
-    });
-
-
-    // Дополнительная проверка при отправке
-    input.addEventListener('blur', function () {
-
-        if (!this.value) {
-            this.setCustomValidity('');
-            return;
-        }
-
-        const match = this.value.match(/^(\d{2}):(\d{2})$/);
-
-        if (!match) {
-
-            this.setCustomValidity(
-                'Введите время в формате 00:00'
-            );
-
-            return;
-        }
-
-        const hours = Number(match[1]);
-        const minutes = Number(match[2]);
-
-        if (hours > 23 || minutes > 59) {
-
-            this.setCustomValidity(
-                'Введите корректное время'
-            );
-
-        } else {
-
-            this.setCustomValidity('');
-
-        }
-
-    });
-
-
-    input.addEventListener('focus', function () {
-
-        this.setCustomValidity('');
-
-    });
-
+    gap: 57px;
 }
 
 
-// Подключаем маску к обоим полям
+.footer-nav a {
 
-setupTimeInput(
-    document.getElementById('bookingTimeInput')
-);
+    color: #fff;
 
-setupTimeInput(
-    document.getElementById('quickTimeInput')
-);
+    text-decoration: none;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 18px;
+}
+
+
+
+/* Соцсети */
+
+.footer-socials {
+
+    display: flex;
+
+    gap: 50px;
+}
+
+
+.footer-socials img {
+
+    width: 39px;
+
+    height: 39px;
+}
+
+
+
+/* Нижний текст */
+
+.footer-copy {
+
+    margin-top: 35px;
+
+    text-align: center;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 13px;
+
+    color: #888;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+
+    /* Шапка */
+    .header {
+        height: 70px;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 36px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    /* Главный экран */
+    .hero {
+        min-height: 700px;
+        background-position: center;
+    }
+
+    .hero-content {
+        max-width: none;
+        margin: 80px 20px 0;
+    }
+
+    .hero h1 {
+        font-size: 44px;
+        line-height: 1.05;
+        margin-bottom: 25px;
+    }
+
+    .hero p {
+        max-width: 100%;
+        margin: 30px 0 0;
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+    /* Кнопки */
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .hero-button {
+        width: 220px;
+        height: 70px;
+        border-radius: 25px;
+        font-size: 26px;
+    }
+
+    .learn-more {
+        font-size: 17px;
+        gap: 10px;
+    }
+
+    .learn-more img {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* =========================
+       Мобильная версия
+       ========================= */
+
+    .advantages {
+        min-height: auto;
+        background-position: center;
+    }
+
+    .advantages-content {
+        padding: 70px 20px 80px;
+    }
+
+    /* Заголовок */
+    .advantages h2 {
+        font-size: 40px;
+        line-height: 1.05;
+    }
+
+    /* Преимущества */
+    .advantages-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px 20px;
+        margin-top: 70px;
+    }
+
+    /* Отдельное преимущество */
+    .advantage {
+        width: 100%;
+    }
+
+    /* Круг с иконкой */
+    .advantage-icon {
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 28px;
+    }
+
+    /* Иконка */
+    .advantage-icon img {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* Заголовок */
+    .advantage h3 {
+        margin: 0 0 10px;
+        font-size: 22px;
+        line-height: 1.1;
+    }
+
+    /* Описание */
+    .advantage p {
+        max-width: 160px;
+        font-size: 15px;
+        line-height: 1.3;
+    }
+
+    /* =========================
+       МОБИЛЬНАЯ АДАПТАЦИЯ ПРАЙСА
+       ========================= */
+
+    /* Секция */
+    .price {
+        min-height: auto;
+    }
+
+    /* Контент */
+    .price-content {
+        padding: 60px 20px 60px;
+    }
+
+    /* Заголовок */
+    .price h2 {
+        font-size: 40px;
+    }
+
+    /* Список карточек */
+    .price-list {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        width: 100%;
+        max-width: 360px;
+        margin: 50px auto 0;
+    }
+
+    /* Карточка */
+    .price-card {
+        width: 100%;
+        min-height: 420px;
+        border-radius: 24px;
+    }
+
+    /* Изображение */
+    .price-image {
+        width: calc(100% - 20px);
+        height: 230px;
+        margin: 10px 10px 0;
+        border-radius: 20px;
+    }
+
+    /* Информация */
+    .price-info {
+        padding: 18px 18px 16px;
+    }
+
+    /* Название */
+    .price-info h3 {
+        margin-bottom: 14px;
+        font-size: 24px;
+    }
+
+    /* Описание */
+    .price-info p {
+        max-width: 250px;
+        font-size: 16px;
+        line-height: 1.25;
+    }
+
+    /* Цена */
+    .price-value {
+        font-size: 24px;
+    }
+
+    /* Текст под карточками */
+    .price-note {
+        max-width: 300px;
+        margin: 55px auto 0;
+        font-size: 15px;
+        line-height: 1.3;
+    }
+
+    /* =========================
+       МОБИЛЬНАЯ ВЕРСИЯ
+       ========================= */
+
+    .works {
+        min-height: auto;
+    }
+
+    .works-content {
+        padding: 60px 20px 60px;
+    }
+
+    .works h2 {
+        font-size: 40px;
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        max-width: 360px;
+        margin-top: 45px;
+    }
+
+    .work-item {
+        border-radius: 16px;
+        aspect-ratio: 1 / 1.15;
+    }
+
+    .works-button {
+        width: 180px;
+        height: 52px;
+        margin: 40px 0 0 auto;
+        border-radius: 14px;
+        padding: 0 18px 0 20px;
+        font-size: 16px;
+    }
+
+    .works-arrow {
+        font-size: 25px;
+    }
+
+    /* =========================
+       НАШИ БАРБЕРЫ — МОБИЛЬНАЯ
+       ========================= */
+
+    .barbers {
+        min-height: auto;
+    }
+
+    .barbers-content {
+        padding: 35px 20px 50px;
+    }
+
+    .barbers h2 {
+        font-size: 30px;
+    }
+
+    .barbers-list {
+        width: 100%;
+        max-width: none;
+        gap: 24px;
+        margin-top: 35px;
+    }
+
+    /* Карточка */
+    .barber-card {
+        width: 100%;
+        height: 155px;
+        padding: 7px;
+        border-radius: 11px;
+    }
+
+    /* Фото */
+    .barber-photo {
+        width: 125px;
+        height: 139px;
+        border-radius: 9px;
+    }
+
+    /* Информация */
+    .barber-info {
+        padding: 8px 12px;
+    }
+
+    .barber-info h3 {
+        margin-bottom: 6px;
+        font-size: 16px;
+    }
+
+    .barber-experience {
+        margin-bottom: 7px;
+        font-size: 11px;
+    }
+
+    .barber-info p {
+        max-width: none;
+        font-size: 10px;
+        line-height: 1.2;
+    }
+
+    /* =========================
+       МОБИЛЬНАЯ ВЕРСИЯ
+       ========================= */
+
+    .contacts {
+        padding: 30px 20px 25px;
+    }
+
+    /* Контакты + форма вертикально */
+    .contacts-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+    }
+
+    /* =========================
+       КОНТАКТЫ — СВЕРХУ
+       ========================= */
+
+    .contact-info {
+        order: 1;
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .contact-info h3 {
+        margin-bottom: 25px;
+        font-size: 40px;
+        line-height: 1.1;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 67px;
+        margin-bottom: 62px;
+        font-size: 20px;
+        line-height: 1.3;
+    }
+
+    .contact-item img {
+        flex-shrink: 0;
+        width: 47px;
+        height: 47px;
+    }
+
+    /* Номер */
+    .phone-number {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    /* Соцсети */
+    .socials {
+        display: flex;
+        gap: 50px;
+        margin-top: 15px;
+    }
+
+    .socials img {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* =========================
+       ФОРМА — НИЖЕ КОНТАКТОВ
+       ========================= */
+
+    .contact-booking {
+        order: 2;
+        width: 100%;
+        max-width: 360px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .contact-booking h2 {
+        margin-bottom: 18px;
+        font-size: 24px;
+    }
+
+    .quick-booking {
+        gap: 9px;
+    }
+
+    .quick-booking input,
+    .quick-booking select {
+        width: 100%;
+        height: 40px;
+        padding: 0 10px;
+        border-radius: 6px;
+        font-size: 13px;
+    }
+
+    .quick-booking button {
+        width: 100%;
+        height: 42px;
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+    /* =========================
+       КАРТА — В САМОМ НИЗУ
+       ========================= */
+
+    .map {
+        width: 100%;
+        max-width: 360px;
+        height: 140px;
+        margin: 30px auto 0;
+        border-radius: 8px;
+    }
+
+    /* =========================
+       FOOTER — MOBILE
+       ========================= */
+
+    .footer {
+        padding: 30px 20px 18px;
+    }
+
+    /* Верхняя часть */
+    .footer-main {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+    }
+
+    /* Логотип */
+    .footer-logo {
+        font-size: 36px;
+        letter-spacing: 1px;
+    }
+
+    /* Навигация */
+    .footer-nav {
+        position: static;
+        transform: none;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px 25px;
+    }
+
+    .footer-nav a {
+        font-size: 15px;
+    }
+
+    /* Соцсети */
+    .footer-socials {
+        gap: 25px;
+    }
+
+    .footer-socials img {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Копирайт */
+    .footer-copy {
+        margin-top: 30px;
+        font-size: 10px;
+        text-align: center;
+        line-height: 1.3;
+    }
+}
