@@ -226,14 +226,28 @@ const phoneInputs = document.querySelectorAll('input[type="tel"]');
 
 phoneInputs.forEach(input => {
     input.addEventListener('input', function () {
-        let value = this.value.replace(/\D/g, '');
+        const oldValue = this.value;
+        const cursorPosition = this.selectionStart;
 
-        // Убираем 7 или 8, если пользователь ввёл их сам
+        // Количество цифр слева от курсора
+        let digitsBeforeCursor = oldValue
+            .slice(0, cursorPosition)
+            .replace(/\D/g, '').length;
+
+        let value = oldValue.replace(/\D/g, '');
+
+        // Если поле полностью очищено
+        if (value.length === 0) {
+            this.value = '';
+            return;
+        }
+
+        // Убираем 7 или 8 в начале
         if (value.startsWith('7') || value.startsWith('8')) {
             value = value.slice(1);
         }
 
-        // Максимум 10 цифр после +7
+        // Максимум 10 цифр
         value = value.slice(0, 10);
 
         let result = '+7';
@@ -259,5 +273,29 @@ phoneInputs.forEach(input => {
         }
 
         this.value = result;
+
+        // Восстанавливаем позицию курсора
+        let newCursorPosition = 2;
+        let digitCount = 0;
+
+        for (let i = 0; i < result.length; i++) {
+            if (/\d/.test(result[i])) {
+                digitCount++;
+
+                if (digitCount >= digitsBeforeCursor) {
+                    newCursorPosition = i + 1;
+                    break;
+                }
+            }
+        }
+
+        if (newCursorPosition > result.length) {
+            newCursorPosition = result.length;
+        }
+
+        this.setSelectionRange(
+            newCursorPosition,
+            newCursorPosition
+        );
     });
 });
